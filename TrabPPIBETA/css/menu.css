@@ -1,0 +1,69 @@
+
+.cabecalho {
+    background: lightgreen;
+    border-bottom: solid 5px green;
+    height: 60px;
+    box-sizing: content-box;
+}
+
+.menu {
+    display: inline-block;
+    vertical-align: top;
+    height: 60px;
+}
+
+.menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    padding: 15px;
+    width: 100px;
+}
+
+.btn {
+    float: right;
+    margin-right: 30px;
+    margin-top: 6px;
+    width: 150px;
+}
+
+.menuAdmin {
+    display: inline-block;
+    vertical-align: top;
+    height: 60px;
+}
+
+.menuAdmin ul {
+    margin: 0;
+    padding: 0;
+}
+
+.menuAdmin li {
+    display: inline-block; 
+}
+
+.menuAdmin a {
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    text-align: center;
+    width: 100px;
+    padding: 15px;
+}
+
+.imglogo {
+    width: 100px;
+    height: 60px;
+}
+
+

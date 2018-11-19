@@ -1,0 +1,1 @@
+<footer class="rodape col-sm-12"></footer>
