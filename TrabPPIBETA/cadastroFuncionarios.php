@@ -1,6 +1,6 @@
 <?php
-    session_start();
     include('php/validarsessao.php');
+    $paginaAtiva = "cadastroFuncionario";
     require "php/cadfunc.php";
 ?>
 
@@ -26,59 +26,59 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-8 central">
-            <form name='formCadastroFuncionarios' class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
+            <form name='formCadastroFuncionarios' class="form-horizontal" action="php/cadfunc.php" method="POST">
                     <div class="row">
                         <label class="col-sm-2" for="nome">Nome:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="nome" placeholder="Digite o nome">
+                            <input type="text" class="form-control" name="nome" placeholder="Digite o nome">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="telefone">Telefone:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="telefone" placeholder="Digite o telefone">
+                            <input type="text" class="form-control" name="telefone" placeholder="Digite o telefone">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="cpf">CPF:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="cpf" placeholder="Digite o cpf">
+                            <input class="form-control" type="number" name="cpf" placeholder="Digite o cpf">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="address">Endereço:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="address" placeholder="Digite o Endereço">
+                            <input type="text" class="form-control" name="address" placeholder="Digite o Endereço">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="celular">Celular:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="celular" placeholder="Digite o Telefone para contato">
+                            <input type="text" class="form-control" name="celular" placeholder="Digite o Telefone para contato">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="email">E-mail:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="email" placeholder="Digite o Celular">
+                            <input type="text" class="form-control" name="email" placeholder="Digite o Celular">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="dataingresso">Data de Ingresso:</label>
                         <div class="col-sm-6">
-                            <input type="date" class="form-control" id="dataingresso" placeholder="Digite a data">
+                            <input type="date" class="form-control" name="dataingresso" placeholder="Digite a data">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="cargo">Cargo:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="cargo" placeholder="Digite o Cargo">
+                            <input type="text" class="form-control" name="cargo" placeholder="Digite o Cargo">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="salario">Salario:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="salario" placeholder="Digite o Salario">
+                            <input type="text" class="form-control" name="salario" placeholder="Digite o Salario">
                         </div>
                     </div>
 
@@ -99,7 +99,7 @@
 			echo "<h3 class='text-danger'>Cadastro não realizado: $msgErro</h3>";
 		}
 	    ?>
-
+        
     </div>
 
 <?php include "php/footer.php";?>

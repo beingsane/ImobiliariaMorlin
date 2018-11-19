@@ -1,6 +1,6 @@
 <?php
 	include("conexaoMySQL.php");
-
+	
 	function filtraEntradaV($dado){
 		$dado = trim($dado);
 		$dado = stripslashes($dado);
@@ -21,7 +21,7 @@
 		if($resultado->num_rows <= 0){
 			echo "<script>
 					alert('Dados incorretos, tente novamente!');
-					window.location.replace('../index.php');
+					window.location.replace('../TrabPPIBETA/index.php');
 				</script>"; 
 		}
 		else{
@@ -29,7 +29,7 @@
 			$_SESSION["login"] = $login;
 			echo "<script>
                     alert('Bem vindo!');
-					window.location.replace('../cadastroFuncionarios.php');
+					window.location.replace('../TrabPPIBETA/cadastroFuncionarios.php');
 				</script>"; 
 		}	
 	}

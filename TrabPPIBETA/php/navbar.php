@@ -1,11 +1,10 @@
 <?php
     include("validaAdmin.php");
     if (!isset($_SESSION["login"])) {
-    $logado = false;
-} else {
-    $logado = true;
-}
-
+        $logado = false;
+    } else {
+        $logado = true;
+    }
 ?>
 
 <div class="container-fluid">
@@ -30,7 +29,7 @@
                             <h4 class="modal-title">Digite os dados para Login</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
-                        <form action="php/validaAdmin.php" method="POST">
+                        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                             <div class="modal-body">
                                 <div class="form-group">
                                     <label class="control-label col-sm-2" for="login">Login:</label>
