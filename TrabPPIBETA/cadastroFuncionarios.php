@@ -1,7 +1,7 @@
 <?php
+    session_start();
     include('php/validarsessao.php');
     require "php/cadfunc.php";
-    $paginaAtiva = "cadastroFuncionario";
 ?>
 
 <!DOCTYPE html>
@@ -99,7 +99,7 @@
 			echo "<h3 class='text-danger'>Cadastro não realizado: $msgErro</h3>";
 		}
 	    ?>
-        
+
     </div>
 
 <?php include "php/footer.php";?>

@@ -1,6 +1,5 @@
 <?php
 	include("conexaoMySQL.php");
-	$conn = conectaAoMySQL();
 
 	function filtraEntradaV($dado){
 		$dado = trim($dado);

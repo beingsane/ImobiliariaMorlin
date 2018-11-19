@@ -12,13 +12,14 @@
 	if($_SERVER["REQUEST_METHOD"] == 'POST'){
 		$msgErro = '';
 		$cargo = $telefone = $email = $endereco = $dataingresso = "";
-		$nome = $sexo = $cpf = $salario = "";
+		$nome = $sexo = $cpf = $salario = $celular = "";
 		
 		
 		$nome = filtraEntrada($_POST["nome"]);
 		$sexo = filtraEntrada($_POST["sexo"]);
 		$cpf = filtraEntrada($_POST["cpf"]);
 		$salario = filtraEntrada($_POST["salario"]);
+		$endereco = filtraEntrada($_POST["endereco"]);
 		$telefone = filtraEntrada($_POST["telefone"]);
 		$email = filtraEntrada($_POST["email"]);
         $cargo = filtraEntrada($_POST["cargo"]);
@@ -30,14 +31,14 @@
 			$conn->begin_transaction();
 			
 			$sql = "
-				INSERT INTO funcionario(nome, cpf, email, endereco, telefone, sexo, celular, cargo, salario, dataingresso)
+				INSERT INTO funcionario(Id, nome, cpf, email, endereco, telefone, sexo, celular, cargo, salario, dataingresso)
 				values (?, NULL , ? , ? , NULL , NULL , NULL , ? , NULL , ?);
 			";
 
 
 			$stmt = $conn->prepare($sql);
 
-			$stmt->bind_param("sisisisis", $nome , $telefone , $cargo, $celular , $email , $cpf, $endereco, $salario, $dataingresso);
+			$stmt->bind_param("sisisisisi", $nome , $telefone , $cargo, $celular , $email , $cpf, $endereco, $salario, $dataingresso, $sexo);
         
 			if (! $stmt->execute())
 				throw new Exception("Erro ao inserir o funcionario: " . $conn->error);
