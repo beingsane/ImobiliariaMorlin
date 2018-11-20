@@ -22,7 +22,7 @@
 		$email = filtraEntrada($_POST["email"]);
         $cargo = filtraEntrada($_POST["cargo"]);
 		$celular = filtraEntrada($_POST["celular"]);
-		$endereco = filtraEntrada($_POST["address"]);
+		$endereco = filtraEntrada($_POST["endereco"]);
 		$dataingresso = filtraEntrada($_POST["dataingresso"]);
 		
 		

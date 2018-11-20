@@ -24,34 +24,29 @@
         $estadocivil = filtraEntrada($_POST["estadocivil"]);
         $endereco = filtraEntrada($_POST["endereco"]);
 		
+
 		try{
-			
-			$conn->begin_transaction();
 			
 			$sql = "
 				INSERT INTO cliente(nome, cep, cpf, email, estadocivil, endereco, telefone, sexo)
-				values (?, NULL , NULL , ? , NULL , ? , NULL , NULL);
+				values (?, ? , ? , ? , ? , ? , ? , ?);
 			";
 			
 			$stmt = $conn->prepare($sql);
-
-			$stmt->bind_param("ssiiisis", $nome , $telefone , $sexo , $cep , $estadocivil , $email , $cpf, $endereco);
+			$stmt->bind_param("ssissssi", $nome , $cep , $cpf , $email , $estadocivil , $endereco , $telefone, $sexo);
         
 			if (! $stmt->execute())
 				throw new Exception("Erro ao inserir o cliente: " . $conn->error);
     
-			
-			$conn->commit();
-    
 			$formProcSucesso = true;
 			echo "<script>
 					alert('Cadastro realizado');
-					window.location.replace('cadastroClientes.php');
+					window.location.replace('../cadastroClientes.php');
 				</script>"; 
 			} catch (Exception $e){
 				$conn->rollback();echo"<script>
 					alert('Cadastro não realizado, tente novamente');
-					window.location.replace('cadastroClientes.php');
+					window.location.replace('../cadastroClientes.php');
 				</script>"; 
 			}
 	}

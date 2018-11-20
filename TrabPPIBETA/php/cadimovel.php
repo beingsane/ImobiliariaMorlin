@@ -11,8 +11,8 @@
 	
 	if($_SERVER["REQUEST_METHOD"] == 'POST'){
 		$msgErro = '';
-		$qtd_salas = $qtd_garagem = $qtd_quartos = $qtd_suites = $valor_cond = "";
-		$armario = $armario = $id = $portaria = $area "";
+		$andar = $armario = $id = $portaria = $qtd_garagem = NULL;
+		$qtd_quartos = $qtd_salas = $qtd_suites = $valor_cond = $area_ = NULL;
 		
 		
 		$andar = filtraEntrada($_POST["andar"]);
@@ -24,37 +24,33 @@
         $qtd_salas = filtraEntrada($_POST["qtd_salas"]);
         $qtd_suites = filtraEntrada($_POST["qtd_suites"]);
         $valor_cond = filtraEntrada($_POST["valor_cond"]);
-        $area = filtraEntrada($_POST["area"]);
+        $area_ = filtraEntrada($_POST["area"]);
 		
 		try{
 			
-			$conn->begin_transaction();
-			
+
 			$sql = "
-				INSERT INTO funcionario(andar, id, qtd_quartos, qtd_garagem, armario, qtd_suites, qtd_salas, portaria, valor_cond, area)
+				INSERT INTO imovel(id, qtd_quartos, qtd_suites, qtd_salas, qtd_garagem, armario, area_ , andar, valor_cond, portaria)
 				values (?, ? , ? , ? , ? , ? , ? , ? , ?, ?);
 			";
 
 
 			$stmt = $conn->prepare($sql);
-
-			$stmt->bind_param("iiiiiiiiii", $andar , $qtd_garagem , $qtd_salas, $qtd_suites , $qtd_quartos , $id, $armario, $valor_cond, $portaria, $area);
+			$stmt->bind_param("iiiiiiiiii", $id, $qtd_quartos, $qtd_suites, $qtd_salas, $qtd_garagem, $armario, $area_ , $andar, $valor_cond, $portaria);
         
 			if (! $stmt->execute())
 				throw new Exception("Erro ao inserir o imovel: " . $conn->error);
-    
-			
-			$conn->commit();
+
     
 			$formProcSucesso = true;
 			echo "<script>
 					alert('Cadastro realizado');
-					window.location.replace('cadastroImoveis.php');
+					window.location.replace('../cadastroImoveis.php');
 				</script>"; 
 			} catch (Exception $e){
 				$conn->rollback();echo"<script>
 					alert('Cadastro não realizado, tente novamente');
-					window.location.replace('cadastroImoveis.php');
+					window.location.replace('../cadastroImoveis.php');
 				</script>"; 
 			}
 	}

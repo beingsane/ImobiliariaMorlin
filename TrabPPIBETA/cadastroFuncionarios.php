@@ -46,9 +46,9 @@
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2" for="address">Endereço:</label>
+                        <label class="col-sm-2" for="endereco">Endereço:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" name="address" placeholder="Digite o Endereço">
+                            <input type="text" class="form-control" name="endereco" placeholder="Digite o Endereço">
                         </div>
                     </div>
                     <div class="row">

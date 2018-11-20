@@ -1,8 +1,8 @@
 <?php
-    session_start();
+    include('php/validarsessao.php');
+    $paginaAtiva = "cadastroImovel";
+    require "php/cadimovel.php";
 ?>
-
-<?php include "php/validarsessao.php";?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,17 +21,33 @@
 
     <script>
         function hiddenForm(option) {
-            console.log("teste");
             if (option == 1) {
-                document.getElementById("formApart").style.visibility = "hidden";
+                document.getElementById("formApartYes").fade = "hidden";
             }
             else if (option == 2) {
-                document.getElementById("formApart").style.visibility = "visible";
+                document.getElementById("formApartYes").style.visibility = "visible";
             }
         };
+
     </script>
 
+    <script>/*
+        $('#formApartYes').click(function(){
+            if (option == 1){
+
+            }
+            if($('#formApartYes').is(':checked')) {
+                $('#formApartYes').fadeIn(700);
+            } else {
+                $('#formApartYes').fadeOut(700);   
+            }
+        });*/
+    </script>
+
+    
+
 </head>
+
 
 <body>
 <?php include "php/navbar.php";?>
@@ -39,78 +55,92 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-8 central">
-                <form class="form-horizontal" action="/action_page.php">
-
-                    <label class="radio-inline">
-                        <input type="radio" name="optradio" value="1" onclick="hiddenForm(1);">Casa</label>
-                    <label class="radio-inline">
-                        <input type="radio" name="optradio" value="2" onclick="hiddenForm(2);">Apartamento</label>
-
+                <form name="formCadastroImovel" class="form-horizontal" action="php/cadimovel.php" method="POST">
                     <div class="row">
-                        <label class=" col-sm-3" for="name">Quantidade de quantos:</label>
+                        <label class="col-sm-3" for="id">Tipo de Imóvel:</label>
+                        <label class="radio-inline"><input type="radio" name="id" value="1" onclick="hiddenForm(1);">Casa</label>
+                        <label class="radio-inline"><input type="radio" name="id" value="2" onclick="hiddenForm(2);">Apartamento</label>
+                    </div>
+                    <div class="row">
+                        <label class=" col-sm-3" for="qtd_quartos">Quantidade de quantos:</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" id="name" placeholder="número de quartos">
+                            <input type="number" class="form-control" name="qtd_quartos" placeholder="número de quartos">
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-3" for="name">Quantidade de suites:</label>
+                        <label class="col-sm-3" for="qtd_suites">Quantidade de suites:</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" id="name" placeholder="número de suites">
+                            <input type="number" class="form-control" name="qtd_suites" placeholder="número de suites">
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-3" for="name">Quantidade de salas:</label>
+                        <label class="col-sm-3" for="qtd_salas">Quantidade de salas:</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" id="name" placeholder="número de salas">
+                            <input type="number" class="form-control" name="qtd_salas" placeholder="número de salas">
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-3" for="name">Vagas na garagem:</label>
+                        <label class="col-sm-3" for="qtd_garagem">Vagas na garagem:</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" id="name" placeholder="vagas na garagem">
+                            <input type="number" class="form-control" name="qtd_garagem" placeholder="vagas na garagem">
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-3" for="name">Área:</label>
+                        <label class="col-sm-3" for="area_">Área:</label>
                         <div class="col-sm-3">
-                            <input type="number" class="form-control" id="name" placeholder="área">
+                            <input type="number" class="form-control" name="area_" placeholder="área">
                         </div>
                     </div>
                     <div class="row">
-                        <label class=" col-sm-3" for="name">Possui armário imbutido:</label>
+                        <label class=" col-sm-3" for="armario">Possui armário imbutido:</label>
                         <div class="col-sm-3">
                             <label class="radio-inline">
-                                <input type="radio" name="optradio">Sim</label>
+                                <input type="radio" name="armario" value='1'>Sim</label>
                             <label class="radio-inline">
-                                <input type="radio" name="optradio">Não</label>
+                                <input type="radio" name="armario" value='2'>Não</label>
                         </div>
                     </div>
-                    <div id="formApart" style="visibility: hidden;">
+
+                    <div class="row">
+                        <label class="col-sm-2" name="select_nome">Proprietário:</label>
+                        <select class="col-sm-4" name="select_nome">
+                            <option>Selecione</option>
+                            <?php
+                                $result_nome = "SELECT nome FROM cliente";
+                                $resultado_nome = mysqli_query($conn, $result_nome);
+                                while ($row_nome = mysqli_fetch_assoc($resultado_nome)){ ?>
+                                    <option value="<?php echo $row_nome['cpf']; ?>"><?php echo $row_nome['nome']; ?></option> <?php
+                                }
+                            ?>
+                        </select>
+                    </div>
+
+                    <div id="formApartYes" name="formApartYes" style="visibility: hidden;">
                         <div class="row">
-                            <label class="col-sm-3" for="name">Andar:</label>
+                            <label class="col-sm-3" for="andar">Andar:</label>
                             <div class="col-sm-3">
-                                <input type="number" class="form-control" id="name" placeholder="andar">
+                                <input type="number" class="form-control" name="andar" placeholder="andar">
                             </div>
                         </div>
                         <div class="row">
-                            <label class="col-sm-3" for="name">Valor do condomínio:</label>
+                            <label class="col-sm-3" for="valor_cond">Valor do condomínio:</label>
                             <div class="col-sm-3">
-                                <input type="number" class="form-control" id="name" placeholder="valor">
+                                <input type="number" class="form-control" name="valor_cond" placeholder="valor">
                             </div>
                         </div>
                         <div class="row">
-                            <label class=" col-sm-3" for="name">Possui portaria 24 horas:</label>
+                            <label class=" col-sm-3" for="portaria">Possui portaria 24 horas:</label>
                             <div class="col-sm-3">
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio">Sim</label>
+                                    <input type="radio" name="portaria" value='1'>Sim</label>
                                 <label class="radio-inline">
-                                    <input type="radio" name="optradio">Não</label>
+                                    <input type="radio" name="portaria" value='2'>Não</label>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
-                            <button type="button" class="btn btn-info btn-lg">Armazenar</button>
+                            <button type="submit" class="btn btn-info btn-lg">Armazenar</button>
                         </div>
                     </div>
                 </form>

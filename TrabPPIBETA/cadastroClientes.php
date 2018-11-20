@@ -1,8 +1,8 @@
 <?php
-    session_start();
+    include('php/validarsessao.php');
+    $paginaAtiva = "cadastroCliente";
+    require "php/cadcliente.php";
 ?>
-
-<?php include "php/validarsessao.php";?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -26,58 +26,61 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-8 central">
-                <form name="formCadastroCliente" class="form-horizontal" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST">
+                <form name="formCadastroCliente" class="form-horizontal" action="php/cadcliente.php" method="POST">
                     <div class="row">
-                        <label class="col-sm-2" for="name">Nome:</label>
+                        <label class="col-sm-2" for="nome">Nome:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="name" placeholder="Digite o nome">
+                            <input type="text" class="form-control" name="nome" placeholder="Digite o nome">
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2" for="phonenumber">Telefone:</label>
+                        <label class="col-sm-2" for="telefone">Telefone:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="phonenumber" placeholder="Digite o telefone">
+                            <input type="text" class="form-control" name="telefone" placeholder="Digite o telefone">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="cpf">CPF:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="cpf" placeholder="Digite o CPF">
+                            <input type="text" class="form-control" name="cpf" placeholder="Digite o CPF">
                         </div>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2" for="address">Endereço:</label>
+                        <label class="col-sm-2" for="endereco">Endereço:</label>
                         <div class="col-sm-6">
-                            <input type="text" class="form-control" id="address" placeholder="Digite o Endereço">
+                            <input type="text" class="form-control" name="endereco" placeholder="Digite o Endereço">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="email">E-mail:</label>
                         <div class="col-sm-6">
-                            <input type="email" class="form-control" id="email" placeholder="Digite o E-mail">
+                            <input type="text" class="form-control" name="email" placeholder="Digite o E-mail">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2" for="cep">CEP:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="cep" placeholder="Digite o CEP">
                         </div>
                     </div>
                     <div class="row">
                         <label class="col-sm-2" for="sexo">Sexo:</label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optradio">Masculino</label>
-                        <label class="radio-inline">
-                            <input type="radio" name="optradio">Feminino</label>
+                        <label class="radio-inline"><input type="radio" name='sexo' value='1'>Masculino</label>
+                        <label class="radio-inline"><input type="radio" name='sexo' value='2'>Feminino</label>
                     </div>
                     <div class="row">
-                        <label class="col-sm-2" for="civil">Estado Civil:</label>
-                        <select>
-                            <option>Opção</option>
+                        <label class="col-sm-2" name="estadocivil">Estado Civil:</label>
+                        <select class="col-sm-4" name="estadocivil">
                             <option value="solteiro">Solteiro</option>
                             <option value="casado">Casado</option>
                             <option value="viuvo">Viúvo</option>
-                            <option value="viuvo">Divorciado</option>
+                            <option value="divorciado">Divorciado</option>
                         </select>
                     </div>
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <button type="button" class="btn btn-info btn-lg">Armazenar</button>
+                            <button type="submit" class="btn btn-info btn-lg">Armazenar</button>
                         </div>
                     </div>
                 </form>
