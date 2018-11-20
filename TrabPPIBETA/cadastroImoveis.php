@@ -58,8 +58,8 @@
                 <form name="formCadastroImovel" class="form-horizontal" action="php/cadimovel.php" method="POST">
                     <div class="row">
                         <label class="col-sm-3" for="id">Tipo de Imóvel:</label>
-                        <label class="radio-inline"><input type="radio" name="id" value="1" onclick="hiddenForm(1);">Casa</label>
-                        <label class="radio-inline"><input type="radio" name="id" value="2" onclick="hiddenForm(2);">Apartamento</label>
+                        <label class="radio-inline"><input type="radio" name="tipo" value="1" onclick="hiddenForm(1);">Casa</label>
+                        <label class="radio-inline"><input type="radio" name="tipo" value="2" onclick="hiddenForm(2);">Apartamento</label>
                     </div>
                     <div class="row">
                         <label class=" col-sm-3" for="qtd_quartos">Quantidade de quantos:</label>

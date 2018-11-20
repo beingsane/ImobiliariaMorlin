@@ -11,13 +11,13 @@
 	
 	if($_SERVER["REQUEST_METHOD"] == 'POST'){
 		$msgErro = '';
-		$andar = $armario = $id = $portaria = $qtd_garagem = NULL;
+		$andar = $armario = $tipo = $portaria = $qtd_garagem = NULL;
 		$qtd_quartos = $qtd_salas = $qtd_suites = $valor_cond = $area_ = NULL;
 		
 		
 		$andar = filtraEntrada($_POST["andar"]);
 		$armario = filtraEntrada($_POST["armario"]);
-		$id = filtraEntrada($_POST["id"]);
+		$tipo = filtraEntrada($_POST["tipo"]);
 		$portaria = filtraEntrada($_POST["portaria"]);
 		$qtd_garagem = filtraEntrada($_POST["qtd_garagem"]);
 		$qtd_quartos = filtraEntrada($_POST["qtd_quartos"]);
@@ -30,13 +30,13 @@
 			
 
 			$sql = "
-				INSERT INTO imovel(id, qtd_quartos, qtd_suites, qtd_salas, qtd_garagem, armario, area_ , andar, valor_cond, portaria)
+				INSERT INTO imovel(tipo, qtd_quartos, qtd_suites, qtd_salas, qtd_garagem, armario, area_ , andar, valor_cond, portaria)
 				values (?, ? , ? , ? , ? , ? , ? , ? , ?, ?);
 			";
 
 
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param("iiiiiiiiii", $id, $qtd_quartos, $qtd_suites, $qtd_salas, $qtd_garagem, $armario, $area_ , $andar, $valor_cond, $portaria);
+			$stmt->bind_param("iiiiiiiiii", $tipo, $qtd_quartos, $qtd_suites, $qtd_salas, $qtd_garagem, $armario, $area_ , $andar, $valor_cond, $portaria);
         
 			if (! $stmt->execute())
 				throw new Exception("Erro ao inserir o imovel: " . $conn->error);

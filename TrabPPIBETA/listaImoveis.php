@@ -1,5 +1,6 @@
 <?php
     session_start();
+    include("php/conexaoMySQL.php")
 ?>
 
 <!DOCTYPE html>
@@ -137,53 +138,57 @@
                             </div>
 
                             <button type="button" class="btn1" data-toggle="modal" data-target="#modalInteresse">Tenho Interesse</button>
-                            <div class="modal fade" id="modalInteresse" role="dialog">
-                                <div class="modal-dialog">
-                                    <div class="col-sm-12">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h4 class="modal-title">Digite os dados para demonstrar interesse</h4>
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            
+                                <div class="modal fade" id="modalInteresse" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="col-sm-12">
+                                        <form name="formInteresse" class="form-horizontal" action="php/mostrarInteresse.php" method="POST">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h4 class="modal-title">Digite os dados para demonstrar interesse</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <div class="modal-body">
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-6" for="nome">Nome Completo:</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" name="nome" placeholder="Digite o nome" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-3" for="email">E-mail:</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" name="email" placeholder="Digite o email" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="telefone">Telefone:</label>
+                                                        <div class="col-sm-6">
+                                                            <input type="text" class="form-control" name="telefone" placeholder="Digite o telefone" required>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label class="control-label col-sm-2" for="descricao">Descrição:</label>
+                                                        <div class="col-sm-10">
+                                                            <input type="text" name="descricao" placeholder="Digite a Descrição" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="modal-footer">
+                                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                                                </div>
+
                                             </div>
-
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label class="control-label col-sm-6" for="nome">Nome Completo:</label>
-                                                    <div class="col-sm-6">
-                                                        <input type="text" class="form-control" name="nome" id="nome" placeholder="Digite o nome" required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-sm-3" for="email">E-mail:</label>
-                                                    <div class="col-sm-6">
-                                                        <input type="text" class="form-control" name="email" id="email" placeholder="Digite o email" required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-sm-2" for="tel">Telefone:</label>
-                                                    <div class="col-sm-6">
-                                                        <input type="text" class="form-control" name="tel" id="tel" placeholder="Digite o telefone" required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <label class="control-label col-sm-2" for="tel">Descrição:</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="textbox" name="tel" id="tel" placeholder="Digite a Descrição" required>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Enviar</button>
-                                            </div>
-
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
-                            </div>
                         </div>
 
 
