@@ -14,8 +14,8 @@
             <nav class="menu">
                 <ul>
                     <li><img src="imagens/logo.png" class="imglogo"></li>
-                    <li <?php if ($paginaAtiva == 'index') echo "class='active' "; ?>><a href="index.php">Home</a></li>
-                    <li <?php if ($paginaAtiva == 'imoveis') echo "class='active' "; ?>><a href="pesquisaImovel.php">Imóveis</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="pesquisaImovel.php">Imóveis</a></li>
                 </ul>
             </nav>
 

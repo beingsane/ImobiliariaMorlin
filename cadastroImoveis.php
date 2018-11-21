@@ -1,6 +1,7 @@
 <?php
     include('php/validarsessao.php');
     $paginaAtiva = "cadastroImovel";
+    require "php/listaClientes.php";
     require "php/cadimovel.php";
 ?>
 
@@ -55,7 +56,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-8 central">
-                <form name="formCadastroImovel" class="form-horizontal" action="php/cadimovel.php" method="POST">
+                <form name="formCadastroImovel" class="form-horizontal" action="php/cadimovel.php" method="POST" enctype="multipart/form-data">
 
                     <div class="row">
                         <label class="col-sm-3" for="categoria">Categoria:</label>
@@ -110,16 +111,18 @@
                     </div>
 
                     <div class="row">
-                        <label class="col-sm-2" name="select_nome">Proprietário:</label>
-                        <select class="col-sm-4" name="select_nome">
+                        <label class="col-sm-2" name="proprietario">Proprietário:</label>
+                        <select class="col-sm-4" name="proprietario">
                             <option>Selecione</option>
                             <?php
-                                $result_nome = "SELECT nome FROM cliente";
-                                $resultado_nome = mysqli_query($conn, $result_nome);
-                                while ($row_nome = mysqli_fetch_assoc($resultado_nome)){ ?>
-                                    <option value="<?php echo $row_nome['cpf']; ?>"><?php echo $row_nome['nome']; ?></option> <?php
-                                }
-                            ?>
+				                if($listaCliente != ""){
+					                foreach ($listaCliente as $cliente){       
+						                echo "
+							                <option value='$cliente->Id'>$cliente->nome</option>
+						                ";
+					                }
+				                }	
+				            ?>
                         </select>
                     </div>
 
@@ -150,7 +153,7 @@
                     <div class="row">
                         <label class="col-sm-2" for="imagensBanco">Imagens:</label>
                         <div class="col-sm-6">
-                            <input type="file" class="form-control" name="imagensBanco" id="imagensBanco" placeholder="Coloque as imagens aqui">
+                            <input type="file" name="files[]" multiple="multiple" placeholder="Coloque as imagens aqui"/>
                         </div>
                     </div>
 
