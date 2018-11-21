@@ -1,9 +1,9 @@
 <?php
 
-	define("HOST", "localhost"); 
-	define("USER", "root");
-	define("PASSWORD", ""); 
-	define("DATABASE", "nicholas");
+	define("HOST", "fdb22.awardspace.net"); 
+	define("USER", "2839050_imobiliariamorlin");
+	define("PASSWORD", "@Admwindows123"); 
+	define("DATABASE", "2839050_imobiliariamorlin");
 
 
 	$conn = new mysqli(HOST, USER, PASSWORD, DATABASE);

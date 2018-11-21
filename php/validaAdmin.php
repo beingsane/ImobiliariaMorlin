@@ -21,7 +21,7 @@
 		if($resultado->num_rows <= 0){
 			echo "<script>
 					alert('Dados incorretos, tente novamente!');
-					window.location.replace('../ImobiliariaMorlin/index.php');
+					window.location.replace('../index.php');
 				</script>"; 
 		}
 		else{
@@ -29,7 +29,7 @@
 			$_SESSION["login"] = $login;
 			echo "<script>
                     alert('Bem vindo!');
-					window.location.replace('../ImobiliariaMorlin/cadastroFuncionarios.php');
+					window.location.replace('../cadastroFuncionarios.php');
 				</script>"; 
 		}	
 	}
