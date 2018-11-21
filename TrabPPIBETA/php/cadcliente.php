@@ -12,7 +12,7 @@
 	if($_SERVER["REQUEST_METHOD"] == 'POST'){
 		$msgErro = '';
 		$cep = $telefone = $email = $endereco = "";
-		$nome = $sexo = $cpf = $cep = "";
+		$nome = $sexo = $cpf = $cep = $cidade = $bairro = $estado = "";
 		
 		
 		$nome = filtraEntrada($_POST["nome"]);
@@ -22,18 +22,21 @@
 		$telefone = filtraEntrada($_POST["telefone"]);
 		$email = filtraEntrada($_POST["email"]);
         $estadocivil = filtraEntrada($_POST["estadocivil"]);
-        $endereco = filtraEntrada($_POST["endereco"]);
+		$endereco = filtraEntrada($_POST["endereco"]);
+		$cidade = filtraEntrada($_POST["cidade"]);
+		$bairro = filtraEntrada($_POST["bairro"]);
+		$estado = filtraEntrada($_POST["estado"]);
 		
 
 		try{
 			
 			$sql = "
-				INSERT INTO cliente(nome, cep, cpf, email, estadocivil, endereco, telefone, sexo)
-				values (?, ? , ? , ? , ? , ? , ? , ?);
+				INSERT INTO cliente(nome, cep, cpf, email, estadocivil, endereco, telefone, sexo, bairro, cidade, estado)
+				values (?, ? , ? , ? , ? , ? , ? , ?, ?, ?, ?);
 			";
 			
 			$stmt = $conn->prepare($sql);
-			$stmt->bind_param("ssissssi", $nome , $cep , $cpf , $email , $estadocivil , $endereco , $telefone, $sexo);
+			$stmt->bind_param("ssissssisss", $nome , $cep , $cpf , $email , $estadocivil , $endereco , $telefone, $sexo, $bairro, $cidade, $estado);
         
 			if (! $stmt->execute())
 				throw new Exception("Erro ao inserir o cliente: " . $conn->error);

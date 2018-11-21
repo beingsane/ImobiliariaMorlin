@@ -56,11 +56,19 @@
         <div class="row">
             <div class="col-sm-8 central">
                 <form name="formCadastroImovel" class="form-horizontal" action="php/cadimovel.php" method="POST">
+
                     <div class="row">
-                        <label class="col-sm-3" for="id">Tipo de Imóvel:</label>
+                        <label class="col-sm-3" for="categoria">Categoria:</label>
+                        <label class="radio-inline"><input type="radio" name="categoria" value="1">Venda</label>
+                        <label class="radio-inline"><input type="radio" name="categoria" value="2">Aluguel</label>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-sm-3" for="tipo">Tipo de Imóvel:</label>
                         <label class="radio-inline"><input type="radio" name="tipo" value="1" onclick="hiddenForm(1);">Casa</label>
                         <label class="radio-inline"><input type="radio" name="tipo" value="2" onclick="hiddenForm(2);">Apartamento</label>
                     </div>
+                    
                     <div class="row">
                         <label class=" col-sm-3" for="qtd_quartos">Quantidade de quantos:</label>
                         <div class="col-sm-3">
@@ -114,6 +122,38 @@
                             ?>
                         </select>
                     </div>
+
+                    <div class="row">
+                        <label class="col-sm-2" for="endereco">Endereço:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="endereco" id="endereco" placeholder="Digite o Endereço">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2" for="bairro">Bairro:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Digite o Bairro">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2" for="cidade">Cidade:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Digite a Cidade">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2" for="estado">Estado:</label>
+                        <div class="col-sm-6">
+                            <input type="text" class="form-control" name="estado" id="estado" placeholder="Digite o Estado">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2" for="imagensBanco">Imagens:</label>
+                        <div class="col-sm-6">
+                            <input type="file" class="form-control" name="imagensBanco" id="imagensBanco" placeholder="Coloque as imagens aqui">
+                        </div>
+                    </div>
+
 
                     <div id="formApartYes" name="formApartYes" style="visibility: hidden;">
                         <div class="row">

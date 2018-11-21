@@ -14,11 +14,7 @@ body {
 }
 
 .radio-inline {
-    padding: 20px;
-}
-
-.radio-inline {
-    padding: 20px;
+    padding: 1px;
 } 
 
 .estilo {
@@ -84,3 +80,8 @@ body {
     height: 150px;
     margin-right: 20px; 
 }
+
+input[type=radio] {
+    margin-right: 10px;
+}
+
