@@ -33,16 +33,16 @@
 		while($stmt->fetch()) {
 			$Imovel = new Imovel();
             
-            $Imovel->$valor_cond = $valor_cond;
-            $Imovel->$qtd_quartos = $qtd_quartos;
-            $Imovel->$area_ = $area_;
-            $Imovel->$qtd_suites = $qtd_suites ;
-            $Imovel->$qtd_salas = $qtd_salas;
-            $Imovel->$qtd_garagem = $qtd_garagem;
-            $Imovel->$armario = $armario;
-            $Imovel->$imagens = $imagens;
+            $Imovel->valor_cond = $valor_cond;
+            $Imovel->qtd_quartos = $qtd_quartos;
+            $Imovel->area_ = $area_;
+            $Imovel->qtd_suites = $qtd_suites ;
+            $Imovel->qtd_salas = $qtd_salas;
+            $Imovel->qtd_garagem = $qtd_garagem;
+            $Imovel->armario = $armario;
+            $Imovel->imagens = $imagens;
 
-            echo $valor_cond;
+            
 			
 			$listaImovel[] = $Imovel;
 		}

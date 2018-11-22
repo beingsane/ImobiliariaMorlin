@@ -24,7 +24,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12 estilo">
-                <form class="form-horizontal" action="/action_page.php">
+                <form class="form-horizontal" action="listaImoveis.php" method='POST'>
                     <div class="row">
                         <label class="radio-inline">
                             <input type="radio" name="optradio" value="1">Aquisição</label>
@@ -34,7 +34,7 @@
 
                     <div class="row">
                         <label class="col-sm-2">Escolha o Bairro:</label>
-                        <select class="col-sm-1">
+                        <select class="col-sm-1" name='bairro'>
                             <option>Opção</option>
                             <option value="">Bairro1</option>
                             <option value="">Bairro2</option>
@@ -46,22 +46,22 @@
                     <div class="row">
                         <label class="control-label col-sm-4" for="name">Digite o valor mínimo e máximo para a busca do imóvel:</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="name" placeholder="mínimo">
+                            <input type="text" class="form-control" name="min" placeholder="mínimo">
                         </div>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="name" placeholder="máximo">
+                            <input type="text" class="form-control" name="max" placeholder="máximo">
                         </div>
                     </div>
 
                     <div class="row">
                         <label class="control-label col-sm-4" for="name">Digite uma palavra chave para pesquisa do Imovel (churrasqueira, piscina, etc):</label>
                         <div class="col-sm-2">
-                            <input type="text" class="form-control" id="name" placeholder="Palavra-chave">
+                            <input type="text" class="form-control" name="key" placeholder="Palavra-chave">
                         </div>
                     </div>
 
                     <div class="col-sm-6">
-                        <button type="button" class="btn btn-info btn-lg" onClick="window.open('listaImoveis.html', '_self')";>Pesquisar</button>
+                        <button type="submit" class="btn btn-info btn-lg";>Pesquisar</button>
                     </div>
                 </form>
             </div>

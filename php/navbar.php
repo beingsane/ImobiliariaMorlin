@@ -14,8 +14,8 @@
             <nav class="menu">
                 <ul>
                     <li><img src="imagens/logo.png" class="imglogo"></li>
-                    <li <?php if ($paginaAtiva == 'index') echo "class='active' "; ?>><a href="index.php">Home</a></li>
-                    <li <?php if ($paginaAtiva == 'imoveis') echo "class='active' "; ?>><a href="pesquisaImovel.php">Imóveis</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="pesquisaImovel.php">Imóveis</a></li>
                 </ul>
             </nav>
 
@@ -61,10 +61,10 @@
             <nav class="menuAdmin">
                 <ul>
                     <li><img src="imagens/logo.png" class="imglogo"></li>
-                    <li <?php if ($paginaAtiva == 'cadastroFuncionario') echo "class='active' "; ?>><a href="cadastroFuncionarios.php">Cadastro Funcionário</a></li>
-                    <li <?php if ($paginaAtiva == 'cadastroCliente') echo "class='active' "; ?>><a href="cadastroClientes.php">Cadastro Cliente</a></li>
-                    <li <?php if ($paginaAtiva == 'cadastroImoveis') echo "class='active' "; ?>><a href="cadastroImoveis.php">Cadastro Imóveis</a></li>
-                    <li <?php if ($paginaAtiva == 'lista') echo "class='active' "; ?>><a href="listaPesquisa.php">Listagem</a></li>
+                    <li><a href="cadastroFuncionarios.php">Cadastro Funcionário</a></li>
+                    <li><a href="cadastroClientes.php">Cadastro Cliente</a></li>
+                    <li><a href="cadastroImoveis.php">Cadastro Imóveis</a></li>
+                    <li><a href="listaPesquisa.php">Listagem</a></li>
                 </ul>
             </nav>
 
