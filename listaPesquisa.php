@@ -1,7 +1,6 @@
 <?php
     include("php/validarsessao.php");
     include("php/conexaoMySQL.php");
-    $paginaAtiva = 'lista'
 ?>
 
 <!DOCTYPE html>
@@ -23,8 +22,72 @@
 <body>
 <?php include "php/navbar.php";?>
 
+    
+
+
     <div class="container-fluid">
         <div class="row">
+
+            <form action="">
+                <select name="Option">
+                    <option value="1">Funcionário</option>
+                    <option value="2">Cliente</option>
+                    <option value="3">Imóvel</option>
+                    <option value="4">Interesse</option>
+                </select>
+
+                <div class="table-responsive">
+                <table class="table">
+                    <tr>
+                        <th>Nome:</th>
+                        <th>CPF:</th>
+                        <th>Email:</th>
+                        <th>Endereço:</th>
+                        <th>Telefone:</th>
+                        <th>Celular:</th>
+                        <th>Cargo:</th>
+                        <th>Salário:</th>
+                        <th>Data de Ingresso:</th>
+                    </tr>
+
+                <?php
+
+                    $option = $_POST['Option'];
+
+                    
+                
+                    function display($option)
+                    {
+                        //while ($row = $resultl->fetch_assoc()){
+                            if ($option == 1){
+                                $result_func = "SELECT nome, cpf, email, endereco, telefone, celular, cargo, salario, dataingresso FROM funcionario";
+                                $resultado_funcionario = mysqli_query($conn, $result_func);
+                                if(mysqli_num_rows($resultado_funcionario) > 0){
+
+                                    while ($row_func = mysqli_fetch_assoc($resultado_funcionario)) {
+                                        echo '<tr>';
+                                        echo '<td>'. $row_func['nome'] .'</td>';
+                                        echo '<td>'. $row_func['cpf'] .'</td>';
+                                        echo '<td>'. $row_func['email'] .'</td>';
+                                        echo '<td>'. $row_func['endereco'] .'</td>';
+                                        echo '<td>'. $row_func['telefone'] .'</td>';
+                                        echo '<td>'. $row_func['celular'] .'</td>';
+                                        echo '<td>'. $row_func['cargo'] .'</td>';
+                                        echo '<td>'. $row_func['salario'] .'</td>';
+                                        echo '<td>'. $row_func['dataingresso'] .'</td>';
+                                        echo '</tr>';
+                                    }
+                                }
+                            }
+                        }
+                  //  }
+                ?>
+                </table>
+                </div>
+            
+            <input type="submit" name="submit" onclick="return display(1);" value="go"/>
+            
+            </form>
 
             <label class="control-label col-sm-1" for="civil">Opção:</label>
             <select>
@@ -142,8 +205,6 @@
                     ?>
                 </table>
             </div>
-
-
         </div>
     </div>
 

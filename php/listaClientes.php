@@ -1,5 +1,5 @@
 <?php 
-	include("conexaoMysql.php");
+	include("conexaoMySQL.php");
 	
 	
 	class Cliente{

@@ -1,6 +1,5 @@
 <?php
     include('php/validarsessao.php');
-    $paginaAtiva = "cadastroImovel";
     require "php/listaClientes.php";
     require "php/cadimovel.php";
 ?>

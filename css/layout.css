@@ -66,8 +66,9 @@ body {
 }
 
 .row label {
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 20px;
+    padding-left: 20px;
 }
 
 .central {
